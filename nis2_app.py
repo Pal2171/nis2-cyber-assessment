@@ -2,13 +2,14 @@ import streamlit as st
 import pandas as pd
 
 # Carica i dati dal file Excel
-@st.cache
+@st.cache_data
 def load_data():
-    file_path = "NIS2-Cyber-Assessment.xlsx"  # Assicurati che il file Excel sia nello stesso folder del file Python
+    file_path = "NIS2-Cyber-Assessment.xlsx"  # Assicurati che il file sia nello stesso folder
     data_test = pd.read_excel(file_path, sheet_name="NIS2 Cyber Test")
     data_analysis = pd.read_excel(file_path, sheet_name="DataAnalysis")
     dashboard = pd.read_excel(file_path, sheet_name="Dashboard")
     return data_test, data_analysis, dashboard
+
 
 # Carica i dati
 data_test, data_analysis, dashboard = load_data()
